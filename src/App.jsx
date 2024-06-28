@@ -1,36 +1,20 @@
 import { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import { TheContext } from "./context/context";
-import "./index.css";
-
-import Cards from "./Cards";
-import Card from "./Card";
 import Navbar from "./Navbar";
-import Profile from "./Profile";
+import CharCard from "./CharCard";
+
 
 function App() {
-  const { state, dispatch } = useContext(TheContext);
+  //const { state, dispatch } = useContext(TheContext);
 
   return (
-    <div className="container mx-auto">
-      <Navbar />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Cards>
-              {state.dataImported.length > 0
-                ? state.dataImported.map((person, i) => (
-                    <Card key={person.id} person={person} />
-                  ))
-                : "Loading..."}
-            </Cards>
-          }
-        />
-
-        <Route path="/people/:id" element={<Profile />} />
-      </Routes>
+    <>
+    <Navbar />
+    <div className="container-fluid p-5">
+      <CharCard className="mt-12"></CharCard>
     </div>
+    </>
   );
 }
 

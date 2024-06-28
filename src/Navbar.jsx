@@ -1,18 +1,22 @@
-import Dropdown from "./Dropdown";
-import { useContext } from "react";
-import { TheContext } from "./context/context";
-import { Link } from "react-router-dom";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function Navbar() {
-  const { state, dispatch } = useContext(TheContext);
-  return (
-    <div className="h-12 flex justify-between items-center px-12 py-12">
-      <Link to="/">
-        <div className="font-mono text-4xl">SWdb</div>
-      </Link>
-      {state.favourites.length > 0 && <Dropdown />}
-    </div>
-  );
+function Navigation() {
+  return ( 
+    <Navbar expand="lg" className="bg-primary-subtle">
+      <Container>
+        <Navbar.Brand href="#home">Star Wars Database</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#home">Favourites</Nav.Link>
+           </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>    
+   );
 }
 
-export default Navbar;
+export default Navigation;
